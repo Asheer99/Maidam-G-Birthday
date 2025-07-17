@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday Aimal!</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <audio autoplay loop>
+    <source src="music.mp3" type="audio/mp3">
+    Your browser does not support the audio tag.
+  </audio>
+
+  <div class="container">
+    <h1>🎉 Happy Birthday Aimal! 🎂</h1>
+    <p class="wish">Wishing you all the love, laughter, and magic today & always! maidam G</p>
+
+    <div class="images">
+      <img src="images/image1.jpg" alt="Aimal 1">
+      <img src="images/image2.jpg" alt="Aimal 2">
+      <img src="images/image3.jpg" alt="Aimal 3">
+    </div>
+
+    <p class="message">You are truly special and deserve the best day ever! Keep smiling, stay strong, and shine like you always do 🌟</p>
+
+    <button id="celebrateBtn">Celebrate!</button>
+    <div id="celebrateAnimation" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; pointer-events:none; z-index:9999;"></div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+  document.getElementById('celebrateBtn').onclick = function() {
+      const container = document.getElementById('celebrateAnimation');
+      container.style.display = 'block';
+      container.innerHTML = '';
+      const icons = ['❤️', '🌸', '🎈'];
+      for(let i=0; i<30; i++) {
+          const el = document.createElement('span');
+          el.textContent = icons[Math.floor(Math.random()*icons.length)];
+          el.style.position = 'absolute';
+          el.style.fontSize = `${30 + Math.random()*40}px`;
+          el.style.left = `${Math.random()*100}vw`;
+          el.style.top = `${100 + Math.random()*400}px`;
+          el.style.transition = 'top 2s linear';
+          container.appendChild(el);
+          setTimeout(() => {
+              el.style.top = `${Math.random()*50}px`;
+          }, 100);
+      }
+      setTimeout(() => {
+          container.style.display = 'none';
+          container.innerHTML = '';
+      }, 2200);
+  };
+  </script>
+</body>
+</html>
